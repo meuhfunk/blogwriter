@@ -1,6 +1,6 @@
 <?php $title = 'JF - Modifier un commentaire';
 ob_start(); ?>
-
+           
 <!-- MODIFICATION DU COMMENTAIRE -->
 <h2>Modifier le commentaire</h2>
 <input class="buttonStyle" onclick="window.history.back();" type="button" value="Annuler" /> <!-- javascript qui permet le retour à la page précédente -->

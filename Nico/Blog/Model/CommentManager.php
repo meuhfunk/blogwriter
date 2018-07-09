@@ -1,5 +1,6 @@
 <?php // MODEL
 namespace Nico\Blog\Model;
+
 class CommentManager extends Manager
 {
     public function getComments($postId) // récupère les commentaires associés à un id de post
@@ -9,6 +10,7 @@ class CommentManager extends Manager
 	    $comments->execute(array($postId)); // permet d'exécuter la requête après avoir inséré les valeurs de façon sécurisée
     	return $comments;
 	}
+
 	public function postComment($postId, $author, $comment) // fonction qui permet d'ajouter un commentaire
     {
 	    $db = $this->dbConnect();
@@ -16,6 +18,7 @@ class CommentManager extends Manager
 	    $affectedLines = $comments->execute(array($postId, $author, $comment));
    		return $affectedLines;
 	}
+
 	public function selectComment($commentId)
 	{
 		$db = $this->dbConnect();
@@ -24,6 +27,7 @@ class CommentManager extends Manager
 		$comment = $comment->fetch();
 		return $comment;
 	}
+
 	public function editComment($commentId, $comment) // fonction qui permet de modifier un commentaire
 	{
 	    $db = $this->dbConnect();
@@ -32,6 +36,7 @@ class CommentManager extends Manager
         $edit = $req->rowCount(); // permet de compter le nombre de ligne affectées par la dernière requête
         return $edit;
 	}
+
 	public function signalComment($commentId)
 	{
 	    $db = $this->dbConnect();
@@ -40,12 +45,14 @@ class CommentManager extends Manager
 		$signal = $req->rowCount(); // permet de compter le nombre de ligne affectées par la dernière requête
 		return $signal;
 	}
+
 	    public function getCommentsSignalised() // récupère les commentaires signalés associés à un id de post
     {
 		$db = $this->dbConnect();
 	    $comments = $db->query('SELECT comments.id, posts.title, comments.id_post, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y (%Hh%imin%ss)\') AS comment_date_fr FROM comments INNER JOIN posts ON posts.id = comments.id_post WHERE signalised = 1 ORDER BY comment_date DESC');
     	return $comments;
 	}
+
     public function deleteComment($commentId) { // permet de supprimer un commentaire de la bdd
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM comments WHERE id = ?');

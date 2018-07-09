@@ -1,5 +1,6 @@
 <?php // Model
 namespace Nico\Blog\Model;
+
 class AdminManager extends Manager
 {
     public function checkLogin($password, $email) {
@@ -7,7 +8,8 @@ class AdminManager extends Manager
         $req = $db->prepare('SELECT pseudo, password, email FROM admin WHERE email = ?');
         $req->execute(array($email));
         $admin = $req->fetch();
-        if (password_verify($password, $admin['password'])) { // fonction PHP qui vérifie si les mots de passe (crypté et clair) sont identiques (celui rentré et celui de la bdd)
+        if ($password == $admin['password']){
+        
             $adminInfo = array(
                 'pseudo' => $admin['pseudo'],
                 'email' => $admin['email'],
@@ -17,6 +19,7 @@ class AdminManager extends Manager
             return false;
         }
     }
+
     public function pseudoUpdate($pseudo, $password) { // pour gérer les modifs d'id du compte admin
         $db = $this->dbConnect();
         $checkLogin = $this->checkLogin($password, $_SESSION['email']);
@@ -29,6 +32,7 @@ class AdminManager extends Manager
             return false;
         }
     }
+
         public function passUpdate($password, $newPassword) { // pour gérer les modifs de mdp du compte admin
         $db = $this->dbConnect();
         $checkLogin = $this->checkLogin($password, $_SESSION['email']);

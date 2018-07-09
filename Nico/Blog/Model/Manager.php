@@ -1,5 +1,6 @@
 <?php
 namespace Nico\Blog\Model;
+
 class Manager
 {
     protected function dbConnect() {

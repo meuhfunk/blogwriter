@@ -1,5 +1,6 @@
 <?php $title = 'JF - Gestion du compte administrateur';
 ob_start();
+
 if (!empty($_GET['success'])) { // si la variable n'est pas vide (c'est à dire que la méthode passUpdate du backend est true)
     echo '<div class="news">Mot de passe mis à jour avec succès !</div>';
 }

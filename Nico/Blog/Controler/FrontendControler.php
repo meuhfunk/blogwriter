@@ -1,5 +1,6 @@
 <?php // CONTROLER - USER
 namespace Nico\Blog\Controler;
+
 class FrontendControler extends MainControler
 {
 // COMMENTS
@@ -12,10 +13,12 @@ class FrontendControler extends MainControler
     		$this->error('Ce message a déjà été signalé et va être modéré prochainement, merci !');
 		}
 	}
+
 // ADMIN ACCOUNT
 	public function adminForm() {
 		$this->displayView('frontend/adminForm'); // on utilise $this (qui représente ici la classe frontedncontroler) pour appeler une méthode de sa classe, héritée ou non
 	}
+
 	public function checkLogin($password, $email) {
 		$adminManager = new \Nico\Blog\Model\AdminManager();
 		$adminInfo = $adminManager->checkLogin($_POST['password'], $_POST['email']);

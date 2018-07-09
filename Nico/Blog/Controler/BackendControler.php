@@ -1,5 +1,6 @@
 <?php // CONTROLER - ADMIN
 namespace Nico\Blog\Controler;
+
 class BackendControler extends MainControler
 {
 // TOKENS
@@ -9,10 +10,12 @@ class BackendControler extends MainControler
     public function getToken() { // retourne le token généré quand on a créé un nouvel objet FrontendController dans l'index
         return $this->token;
     }
+
 // POSTS
 	public function adminIndex() {
 		$this->displayView('backend/adminIndex'); // on utilise $this pour appeler une méthode de sa propre classe
 	}
+
 	public function editPostForm($postId) {
 		$postManager = new \Nico\Blog\Model\PostManager();
 	    $post = $postManager->getPost($postId);
@@ -25,6 +28,7 @@ class BackendControler extends MainControler
 			$this->error('Impossible d\'éditer le billet !');
 	    }
 	}
+
 	public function addPost($title, $content) {
 		$postManager = new \Nico\Blog\Model\PostManager();
 		$success = $postManager->postPost($title, $content);
@@ -34,6 +38,7 @@ class BackendControler extends MainControler
 			$this->error('Impossible d\'ajouter le billet !');
 	    }
 	}
+
 	public function editPost($title, $content, $postId, $token) {
 		$postManager = new \Nico\Blog\Model\PostManager();
 		$success = $postManager->editPost($title, $content, $postId);
@@ -46,6 +51,7 @@ class BackendControler extends MainControler
 			$this->error('Impossible d\'éditer le billet !');
 		}
 	}
+
 	public function deletePost($postId) {
 		$postManager = new \Nico\Blog\Model\PostManager();
 	    $deletePost = $postManager->deletePost($postId);
@@ -55,6 +61,7 @@ class BackendControler extends MainControler
 			$this->error('Aucun billet n\'a été effacé...');
 		}
 	}
+
 // COMMENTS
 	public function adminComments() {
 		$commentManager = new \Nico\Blog\Model\CommentManager();
@@ -68,6 +75,7 @@ class BackendControler extends MainControler
 			$this->error('Il n\'y a aucun commentaire à modérer !');
 		}
 	}
+
 	public function editComment($commentId, $comment, $postId, $token) {
         $commentManager = new \Nico\Blog\Model\CommentManager();
         $editComment = $commentManager->editComment($commentId, $comment);
@@ -80,6 +88,7 @@ class BackendControler extends MainControler
             $this->error('Impossible d\'éditer le commentaire...');
         }
     }
+
 	public function deleteComment($commentId, $postId) {
 		$commentManager = new \Nico\Blog\Model\CommentManager();
 	    $deleteComment = $commentManager->deleteComment($commentId);
@@ -89,6 +98,7 @@ class BackendControler extends MainControler
 			$this->error('Aucun commentaire n\'a été effacé...');
 		}
 	}
+
 	public function editCommentForm($commentId) {
 		$commentManager = new \Nico\Blog\Model\CommentManager();
 		$comment = $commentManager->selectComment($commentId);
@@ -101,10 +111,12 @@ class BackendControler extends MainControler
 			$this->error('Ce commentaire n\'existe pas !');
 	    }
 	}
+
 // ADMIN ACCOUNT
 	public function adminAccountModificationsForm() {
 		$this->displayView('backend/adminAccount');
 	}
+
 	public function pseudoUpdate($pseudo, $password) {
 		$adminManager = new \Nico\Blog\Model\AdminManager();
 		$pseudoUp = $adminManager->pseudoUpdate($pseudo, $password);
@@ -115,6 +127,7 @@ class BackendControler extends MainControler
 			$this->error('Impossible de modifier le pseudo !');
 	    }
 	}
+
 	public function passUpdate($password, $newPassword) {
 		$adminManager = new \Nico\Blog\Model\AdminManager();
 		$passUp = $adminManager->passUpdate($password, $newPassword);
@@ -124,8 +137,10 @@ class BackendControler extends MainControler
 			$this->error('Impossible de modifier le mot de passe !');
 	    }
 	}
+
 	public function logout() {
 	    session_destroy();
 		header('Location: index.php');
 	}
+
 }

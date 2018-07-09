@@ -1,6 +1,6 @@
 <?php $title = 'JF - Modifier un billet';
 ob_start(); ?> <!-- Permet de mémoriser le code html qui suit en le mettant dans la variable "content" -->
-
+           
 <!-- MODIFICATION DU BILLET -->
 <h2>Modifier le billet</h2>
 <input class="buttonStyle" onclick="window.history.back();" type="button" value="Annuler" /> <!-- javascript qui permet le retour à la page précédente -->

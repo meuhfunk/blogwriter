@@ -1,0 +1,270 @@
+html, body {
+    height: 100%;
+}
+.introContainer {
+    min-height: 100%;
+    display: flex;
+}
+.introRow {
+    width: calc(100% + 30px);
+}
+a:hover {
+    text-decoration: none;
+}
+form label {
+    color: #772e01;
+    font-weight: bold;
+}
+
+/* HEADER */
+
+#header {
+    background: url(../img/alaskaMenu.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    flex: 1 0 auto
+}
+    #titleBlog {
+        color: white;
+        font-family: 'Copperplate Gothic';
+        margin-top: 60px;
+    }
+        #titleBlog a {
+            color: white;
+        }
+        #leather {
+            width: 200px;
+        }
+    #biography, #admin {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius : 5px;
+        padding: 10px 20px;
+        text-align: justify;
+        margin: 10px;
+        color: black;
+        margin-top: 80px;
+    }
+    #admin {
+        display: flex;
+        flex-direction: column;
+    }
+        #admin p {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        #admin a {
+            align-self: center;
+            width: 100%;
+            text-align: center;
+        }
+    .adminPart {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius : 5px;
+        margin: 10px;
+        padding: 15px 0;
+    }
+        #adminLinks {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 5px;
+        }
+        #adminLinks a {
+            color: #ad4400;
+        }
+            #adminLinks a:hover {
+                color: #efa045;
+            }
+        #adminConnexion {
+            flex-wrap: nowrap;
+            display: flex;
+            justify-content: center;
+            width: auto;
+        }
+    #pushFooter {
+        flex-grow: 1; /* pousse le footer en bas de bloc */
+    }
+    .footer {
+        color: black;
+        padding-top: 15px;
+        font-size: 0.9em;
+    }
+
+/* CONTENT */
+
+.pagination {
+    text-align: center;
+    justify-content: center;
+}
+    .divNumber {
+        border: solid #ad4400 2px;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: rgba(181, 97, 0, 0.1);
+        margin: 0 3px;
+    }
+        .nb {
+            margin-top: -5px;
+        }
+            .nb a {
+                color: #772e01;
+            }
+
+#content {
+    padding: 20px 0;
+    background-color: white;
+}
+    #content h2 {
+        background-color: white;
+        border-radius: 3px;
+        width: fit-content;
+        padding: 5px;
+        font-size: 1.2em;
+        margin: 10px 30px;
+        color: #ad4400;
+        font-weight: bold;
+        border: none;
+    }
+    .buttonStyle {
+        background-color: #ad4400;
+        border-radius: 3px;
+        width: fit-content;
+        padding: 5px;
+        font-size: 1.2em;
+        margin: 10px 30px;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+        .buttonStyle:hover {
+            background-color: #efa045;
+            text-decoration: none;
+            color: white;
+        }
+    #content h3 {
+        font-family: 'Copperplate Gothic';
+        font-size: 1.8em;
+        color: #772e01;
+    }
+    .smallInfosText {
+        color: rgba black;
+        font-size: 0.7em;
+    }
+
+/* NEWS */
+
+.news, #commentDisplay {
+    margin: 20px 30px 30px;
+    background-color: #87CEFA;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+    .news h3 {
+        font-size: 0.9em;
+        text-align: center;
+        color: black
+    }
+    .news p {
+        text-align: justify;
+        padding: 10px;
+        color: black
+    }
+
+/* COMMENTS */
+
+.commentStyle {
+    background-color: #f2e4a6;
+    border-radius: 5px;
+    padding: 5px 0;
+    margin: 15px 5px;
+    color: #772e01;
+}
+    .fa-exclamation-circle {
+        color: rgba(181, 97, 0, 1);
+    }
+    .commentStyle p {
+        margin-bottom: 0;
+    }
+    #formComment {
+        margin: 15px 0;
+    }
+        #author, #comment, #title {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        #submitComment {
+            border-radius: 5px;
+            border: none;
+            margin-top: 15px;
+        }
+    .adminSignalised {
+        color: darkorange;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+    .fa-pencil, .fa-trash {
+        border-radius: 5px;
+        width: 23px;
+        height: 23px;
+        background-color: white;
+        margin: 0 3px;
+        padding-top: 2.2px;
+        border: solid #b29870 1px;
+        color: #772e01;
+    }
+    .linkComment {
+        background-color: #ad4400;
+        border-radius: 3px;
+        width: fit-content;
+        margin: 4px;
+        font-weight: bold;
+    }
+        .linkComment p {
+            color: white;
+        }
+    .titleComment {
+        color: #efa045
+    }
+        .titleComment:hover {
+            color: orange;
+        }
+/* MODAL */
+
+#modalSignal {
+    display: flex;
+}
+    .modal-content {
+        padding: 10px;
+    }
+    #modalSignal button {
+        margin: 0;
+        align-self: flex-end;
+    }
+
+/* CONNEXION ADMIN */
+
+.connexionAdmin {
+    display: flex;
+    flex-direction: column;
+}
+    .connexionAdmin .buttonStyle {
+        margin: 0;
+        align-self: flex-end;
+    }
+.pseudoStyle {
+    margin: 0;
+    align-self: center;
+    background-color: #efa045;
+    border-radius: 3px;
+    padding: 2px 8px;
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+}

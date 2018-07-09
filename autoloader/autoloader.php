@@ -1,6 +1,6 @@
 <?php
 class Autoloader { // La classe Autoloader permet d'éviter les require dans le controler et le model en exécutant la fonction loader
-    static function register() {
+    static function register() { 
         spl_autoload_register(array('Autoloader', 'loader'));
     }
     static public function loader($className) { // vérifie si le nom du fichier php ainsi que la classe existent
